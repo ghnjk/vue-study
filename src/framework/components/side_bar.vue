@@ -46,7 +46,7 @@ export default {
           children: [
             {
               title: '查询任务',
-              url: '/url/d'
+              url: '/lessons/simple_render'
             },
             {
               title: '创建任务',
@@ -55,11 +55,11 @@ export default {
           ]
         },
         {
-          title: '系统配置',
+          title: '系统测试',
           children: [
             {
-              title: '发布规则配置',
-              url: '/url/d'
+              title: '测试页面',
+              url: '/test'
             }
           ]
         }

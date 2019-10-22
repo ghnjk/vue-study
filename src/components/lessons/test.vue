@@ -19,9 +19,10 @@
 
 <script>
 export default {
-  name: 'SimpleRender',
-  data: function () {
-    console.log('dfsfsfd')
+  name: 'format_check',
+  components: {
+  },
+  data () {
     return {
       isSeen: false,
       textarea: '',
@@ -37,6 +38,10 @@ export default {
       lastUser: '',
       reqId: ''
     }
+  },
+  created () {
+  },
+  methods: {
   }
 }
 </script>
