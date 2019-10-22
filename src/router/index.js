@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../framework/home'
+import Home from '../framework/home.vue'
 import SimpleRender from '../components/lessons/SimpleRender'
 Vue.use(Router)
 

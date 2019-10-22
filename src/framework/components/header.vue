@@ -15,42 +15,41 @@
         </li>
       </ul>
     </div>
-    </div>
   </nav>
 </template>
 
 <script>
-  export default {
-    name: 'homeHeader',
-    data () {
-      return {
-        currentUser: '',
-        imageSrc: '',
-        show: true,
-        style: 'margin-left:200px;'
-      }
-    },
-    created () {
-      sessionStorage.setItem('loginUser', 'jkguo')
-      this.imageSrc = 'https://dcloud.oa.com/Public/Avatar/' + sessionStorage.getItem('loginUser') + '.png'
-      this.$store.dispatch('changeLoginUser', sessionStorage.getItem('loginUser'))
-      if (this.$store.state.data['loginUser']) {
-        this.currentUser = this.$store.state.data['loginUser']
-      }
-      this.OpenCloseAside()
-    },
-    methods: {
-      OpenCloseAside () {
-        this.$emit('changeAside', this.show)
-        this.show = !this.show
-        if (this.show) {
-          this.style = 'margin-left:70px;'
-        } else {
-          this.style = 'margin-left:200px;'
-        }
+export default {
+  name: 'Header',
+  data () {
+    return {
+      currentUser: '',
+      imageSrc: '',
+      show: true,
+      style: 'margin-left:200px;'
+    }
+  },
+  created () {
+    sessionStorage.setItem('loginUser', 'jkguo')
+    this.imageSrc = 'https://dcloud.oa.com/Public/Avatar/' + sessionStorage.getItem('loginUser') + '.png'
+    // this.$store.dispatch('changeLoginUser', sessionStorage.getItem('loginUser'))
+    // if (this.$store.state.data['loginUser']) {
+    //   this.currentUser = this.$store.state.data['loginUser']
+    // }
+    this.OpenCloseAside()
+  },
+  methods: {
+    OpenCloseAside () {
+      this.$emit('changeAside', this.show)
+      this.show = !this.show
+      if (this.show) {
+        this.style = 'margin-left:70px;'
+      } else {
+        this.style = 'margin-left:200px;'
       }
     }
   }
+}
 </script>
 
 <style scoped>
@@ -99,4 +98,3 @@
   }
 
 </style>
-

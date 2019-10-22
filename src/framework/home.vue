@@ -2,23 +2,30 @@
   <el-container style="height: 100%">
     <el-header height="50px" style="background: #3C8DBC">
       <span class="title-font" >{{SystemName}}</span>
-      <home-header @changeAside="changeAside"></home-header>
+      <Header @changeAside="changeAside"></Header>
     </el-header>
     <el-container>
-      <el-aside :width="width"><home-aside :isOpen="isOpen"></home-aside></el-aside>
+      <el-aside :width="width">
+        <SideBar :isOpen="isOpen"></SideBar>
+      </el-aside>
       <el-container>
         <el-main>
-          <app-main></app-main>
+          <AppMain></AppMain>
         </el-main>
-        <el-footer style="text-align: center">2019@frankfyang</el-footer>
+        <el-footer style="text-align: center">2019@jkguo</el-footer>
       </el-container>
     </el-container>
   </el-container>
 </template>
 
 <script>
+
+import Header from './components/header'
+import SideBar from './components/side_bar'
+import AppMain from './components/app_main'
+
 export default {
-  name: 'home',
+  name: 'Home',
   data () {
     return {
       isOpen: '',
@@ -27,11 +34,11 @@ export default {
     }
   },
   components: {
+    Header,
+    SideBar,
+    AppMain
   },
   created () {
-    this.$store.dispatch('changeConf', '')
-    this.$store.dispatch('changeApplicant', '')
-    this.$store.dispatch('changeTaskId', '')
   },
   methods: {
     changeAside (val) {

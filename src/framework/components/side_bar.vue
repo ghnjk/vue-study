@@ -14,15 +14,15 @@
         </el-menu-item>
       </router-link>
 
-      <el-submenu v-for="(index, menu) in navigator" index="{{index}}">
+      <el-submenu v-for="(menu,idx) in navigator" :key="idx" :index="idx.toString()">
         <template slot="title">
           <i class="el-icon-menu"></i>
           <span slot="title">{{ menu.title }}</span>
         </template>
-        <router-link v-for="(subIndex, subMenu) in menu.children" to="{{submenu.url}}">
-          <el-menu-item index="{{index}}-{{subIndex}}">
+        <router-link v-for="(subMenu, subIdx) in menu.children" :key="subIdx" :to="subMenu.url">
+          <el-menu-item :index="combineSubMenuTag(idx, subIdx)">
             <i class="el-icon-document"></i>
-            {{submenu.title}}
+            {{subMenu.title}}
           </el-menu-item>
         </router-link>
       </el-submenu>
@@ -32,39 +32,48 @@
 </template>
 
 <script>
-  export default {
-    name: 'SideBar',
-    props: ['isOpen'],
-    data () {
-      return {
-        activeIndex: '1',
-        currentUser: '',
-        title: '首页',
-        navigator: [
-          {
-            title: '首页',
-            children: [
-              {
-                title: '栏目1',
-                url: '/url/d'
-              }
-            ]
-          },
-          {
-            title: '2',
-            children: [
-              {
-                title: '栏目1',
-                url: '/url/d'
-              }
-            ]
-          }
-        ]
-      }
-    },
-    created () {
+export default {
+  name: 'SideBar',
+  props: ['isOpen'],
+  data () {
+    return {
+      activeIndex: '1',
+      currentUser: '',
+      title: '首页',
+      navigator: [
+        {
+          title: '自动发布任务',
+          children: [
+            {
+              title: '查询任务',
+              url: '/url/d'
+            },
+            {
+              title: '创建任务',
+              url: '/url/d'
+            }
+          ]
+        },
+        {
+          title: '系统配置',
+          children: [
+            {
+              title: '发布规则配置',
+              url: '/url/d'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  created () {
+  },
+  methods: {
+    combineSubMenuTag: function (idx, subIdx) {
+      return idx.toString() + '-' + subIdx.toString()
     }
   }
+}
 </script>
 
 <style scoped>
