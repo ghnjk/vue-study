@@ -34,36 +34,11 @@
 <script>
 export default {
   name: 'SideBar',
-  props: ['isOpen'],
+  props: ['isOpen', 'navigator', 'title'],
   data () {
     return {
       activeIndex: '1',
-      currentUser: '',
-      title: '首页',
-      navigator: [
-        {
-          title: '自动发布任务',
-          children: [
-            {
-              title: '查询任务',
-              url: '/lessons/simple_render'
-            },
-            {
-              title: '创建任务',
-              url: '/url/d'
-            }
-          ]
-        },
-        {
-          title: '系统测试',
-          children: [
-            {
-              title: '测试页面',
-              url: '/test'
-            }
-          ]
-        }
-      ]
+      currentUser: ''
     }
   },
   created () {

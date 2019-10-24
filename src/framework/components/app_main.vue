@@ -1,16 +1,19 @@
 <template>
   <div>
     <tab :route="routePath"></tab>
+    <Home v-if="isShow"></Home>
     <router-view v-if="!isShow"></router-view>
   </div>
 </template>
 
 <script>
 import tab from './tab'
+import Home from '../home'
 export default {
   name: 'AppMain',
   components: {
-    tab
+    tab,
+    Home
   },
   data () {
     return {

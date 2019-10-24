@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../framework/home.vue'
-import SimpleRender from '../components/lessons/SimpleRender'
-import test from '../components/lessons/test'
+import FrameWork from '../framework/framework.vue'
+import SimpleRender from '../lessons/SimpleRender'
+import StoreTest1 from '../lessons/store_test_1'
+import StoreTest2 from '../lessons/store_test_2'
+import test from '../lessons/test'
 
 Vue.use(Router)
 
@@ -10,25 +12,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
+      name: 'FrameWork',
+      component: FrameWork,
       children: [
         {
-          path: 'lessons',
-          name: 'Lesson',
+          path: 'simple_render',
+          name: 'SimpleRender',
+          component: SimpleRender,
           meta: {
-            title: '课程练习'
-          },
-          children: [
-            {
-              path: 'simple_render',
-              name: 'SimpleRender',
-              component: SimpleRender,
-              meta: {
-                title: '简单文本样例'
-              }
-            }
-          ]
+            title: '简单文本样例'
+          }
         },
         {
           path: '/test',
@@ -44,6 +37,22 @@ export default new Router({
           component: SimpleRender,
           meta: {
             title: '简单文本样例'
+          }
+        },
+        {
+          path: 'store_test_1',
+          name: 'StoreTest1',
+          component: StoreTest1,
+          meta: {
+            title: 'vuex状态测试1'
+          }
+        },
+        {
+          path: 'store_test_2',
+          name: 'StoreTest2',
+          component: StoreTest2,
+          meta: {
+            title: 'vuex状态测试2'
           }
         }
       ]
